@@ -230,7 +230,8 @@ if __name__ == "__main__":
         T.ToTensor()
     ]
     dataset = FaceScrubDataset(transform=TRANSFORMS)
-    img = dataset[4000]
+    print("Length: " + str(len(dataset)))
+    #img = dataset[4000]
     # assert_data_split_correct()
 
     # means, stds = get_mean_std()
