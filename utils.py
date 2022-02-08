@@ -113,9 +113,9 @@ def get_data_path(name):
     return DATA_DIR + "/{}".format(name)
 
 if __name__ == "__main__":
-    # preprocess()
-    # print("There are {} images in ./facescrub/download/*/face folder."
-    #         .format(_count_before_imgs()))
-    # print("There are {} images in ./code/data/*."
-    #         .format(_count_after_imgs()))
+    preprocess()
+    print("There are {} images in ./facescrub/download/*/face folder."
+            .format(_count_before_imgs()))
+    print("There are {} images in ./code/data/*."
+            .format(_count_after_imgs()))
     pass
