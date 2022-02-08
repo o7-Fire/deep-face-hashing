@@ -97,6 +97,7 @@ if __name__ == "__main__":
     names = lsdir(root_path)
     counter = 0
     for name in names:
+      try:
         from_path = root_path + "/" + name
         to_path = target_path + "/" + name
         mkdir(to_path)
@@ -116,3 +117,5 @@ if __name__ == "__main__":
         img_names = lsdir(test_from_path)
         counter += _align_imgs(img_names, test_from_path, test_to_path)
         print("Aligned {} images.".format(counter))
+      except:
+        pass
