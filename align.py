@@ -96,10 +96,11 @@ if __name__ == "__main__":
     mkdir(target_path)
     names = lsdir(root_path)
     counter = 0
+    import shutil
     for name in names:
+      from_path = root_path + "/" + name
+      to_path = target_path + "/" + name
       try:
-        from_path = root_path + "/" + name
-        to_path = target_path + "/" + name
         mkdir(to_path)
         # training files
         img_names = list(filter(lambda x: ".jpg" in x, lsdir(from_path)))
@@ -117,5 +118,7 @@ if __name__ == "__main__":
         img_names = lsdir(test_from_path)
         counter += _align_imgs(img_names, test_from_path, test_to_path)
         print("Aligned {} images.".format(counter))
-      except:
+      except Exception as e:
+        print("Fail {} deleting {}".format(e, to_path))
+        shutil.rmtree(to_path)
         pass
